@@ -1,0 +1,76 @@
+
+direction = random(360)
+
+increment_amount = 50
+trail_separation = 15
+increments_taken = 0
+move_speed = 3
+target = fish_obj_pickle
+obstacles = fish_obj_border
+room_border = 32
+
+trail_counter = 0
+rot_speed = -360 / 90
+rot_diff = 24
+core_rot = random(360)
+
+difficulty_wander_times = [2, 4, 6]
+
+
+navigate = function(move_direction, obstacle, sense_length, rotation_speed = 3, sense_detail = 6, sense_spread = 120, nav_speed_multiplier = 1, x_pos = x, y_pos = y)
+{
+	//navigating
+	if(abs(angle_difference(direction, move_direction)) <= rotation_speed * nav_speed_multiplier)
+	{
+		direction = move_direction
+	}
+	else
+	{
+		direction += rotation_speed * nav_speed_multiplier * -sign(angle_difference(direction, move_direction))
+	}
+	
+	//var nearest_obst = noone//instance_nearest(x_pos, y_pos, obstacle)
+	//if(is_array(nearest_obst))
+	//{
+	//	for(var i = 0; i < array_length(nearest_obst); i++)
+	//}
+	
+	//if(nearest_obst != noone) //&& point_distance(x_pos, y_pos, nearest_obst.x, nearest_obst.y) <= sense_length * 1.5)
+	{
+		//sensing surroundings
+		var sense_count = 0
+		var sense_smallest = .75
+		var lr_total = 0
+	
+		for(var i = 0; i < sense_detail; i++)
+		{
+			var beam_length = (((1 - (abs(i - ((sense_detail / 2) - .5)) / (sense_detail / 2))) * (1 - sense_smallest)) + sense_smallest) * sense_length	
+			var sense_point = [x_pos + lengthdir_x(beam_length, direction - (sense_spread / 2) + ((sense_spread / (sense_detail - 1)) * i)), y_pos + lengthdir_y(beam_length, direction - (sense_spread / 2) + ((sense_spread / (sense_detail - 1)) * i))]
+			
+			if(collision_line(x_pos, y_pos, sense_point[0], sense_point[1], obstacle, true, true) != noone)
+			{
+				var left_or_right = sign((i + 1) - (sense_detail / 2))
+				if(left_or_right == 0)
+				{
+					left_or_right = -1
+				}
+				lr_total += left_or_right
+			
+				direction -= rotation_speed * left_or_right * (6 / sense_detail)
+				sense_count++
+			}
+		}
+	
+		direction += sign(lr_total) * .2
+		
+		if(sense_count >= sense_detail)
+		{
+			//direction -= 180
+			//direction += zeroless_sign(angle_difference(direction, move_direction), 1) * 5 * ALT_TIME
+		}
+		
+		return sense_count
+	}
+	
+	return 0
+}
