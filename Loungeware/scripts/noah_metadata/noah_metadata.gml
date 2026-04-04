@@ -6,6 +6,41 @@
 // for help with filling out your metadata see the wiki: 
 // https://github.com/spacebake/Loungeware/wiki/Microgame-Config
 
+microgame_register("noah_inflation", {
+    config_version: 1,
+    game_name: "Inflation",
+    authors : {noah: "Noah Reeves", scarletdrawboy: "ScarletDrawBoy", jcr: "J.C."},
+    prompt: "INFLATE",
+    init_room: noah_inflation_rm_main,
+    view_width: 960,
+    view_height: 640,
+    time_seconds: 4,
+    music_track: noah_inflation_bgm_brass, // nullable, defaults to noone. Accepts: sound name or false
+    music_loops: true, // nullable, defaults to true
+    interpolation_on: true,
+    cartridge_col_primary: [136, 103, 147],
+    cartridge_col_secondary: [195, 167, 204],
+    cartridge_label: noah_inflation_spr_label,
+    default_is_fail: true, // nullable, defaults to true
+    supports_difficulty_scaling: true,
+    credits: ["Noah Reeves", "ScarletDrawBoy", "J.C."],
+    date_added:{
+	  day : 22,
+	  month : 2,
+	  year : 2026
+	},
+	is_enabled: true,
+	supports_html: true,
+	supports_pi: true,
+	show_on_website: true,
+	description: [
+		"The mayor's new campaign strategy is sure to rake in the votes.", 
+	],
+	how_to_play: [
+		"Alternate between pressing up and down."
+	]
+});
+
 microgame_register("noah_claw", {
     config_version: 1,
     game_name: "Draw Claw",
