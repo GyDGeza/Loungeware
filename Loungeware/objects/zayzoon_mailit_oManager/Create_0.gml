@@ -10,3 +10,12 @@ if DIFFICULTY >= 4
 
 //Play Song
 microgame_music_start(_song,1,true);
+
+//Deliver Promp Time
+deliver = false;
+moving = false;
+promptTime = 80;
+
+//Prompt Amount
+promptAmount = 0;
+promptMax = 10;

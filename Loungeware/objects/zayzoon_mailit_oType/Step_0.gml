@@ -12,11 +12,20 @@ if _keyPressed and shownWords < totalWords
 //Done Typing
 if shownWords >= totalWords and !done
 {
+	//Create Prompt
 	instance_create_layer(781,250,"Prompts",zayzoon_mailit_oPrompt,{
 		sprite_index : zayzoon_mailit_sPromptDeliver
 	});
-	sfx_play(zayzoon_mailit_snDone);
+	
+	//Manager
+	zayzoon_mailit_oManager.deliver = true;
+	
+	//Destroy Idle Guy
 	instance_destroy(zayzoon_mailit_oGuyIdle);
 	
+	//Sound
+	sfx_play(zayzoon_mailit_snRun);
+	
+	//Done
 	done = true;
 }

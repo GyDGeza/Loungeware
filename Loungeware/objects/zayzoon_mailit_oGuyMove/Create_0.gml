@@ -11,3 +11,6 @@ moveSpd = 4;
 //Image
 xscale = 1.4;
 yscale = .6;
+
+//Arrows
+layer_set_visible("Arrows",true);

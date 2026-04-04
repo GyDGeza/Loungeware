@@ -1,2 +1,2 @@
-/// @desc End Game Early
+///@desc End Game Early
 microgame_end_early();

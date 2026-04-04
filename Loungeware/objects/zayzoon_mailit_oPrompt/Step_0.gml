@@ -6,4 +6,4 @@ var _val = animcurve_channel_evaluate(_channel, curvePos);
 image_xscale = _val;
 image_yscale = _val;
 
-curvePos += 0.03;
+curvePos += 0.1;

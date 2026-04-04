@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "zayzoon_mailit_snDone",
+  "name": "zayzoon_mailit_snRun",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -14,8 +14,8 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "zayzoon_mailit_snDone.ogg",
-  "duration": 0.785714,
+  "soundFile": "zayzoon_mailit_snRun.ogg",
+  "duration": 1.428571,
   "parent": {
     "name": "Sounds",
     "path": "folders/Microgames/zayzoon/Mail It/Sounds.yy",
