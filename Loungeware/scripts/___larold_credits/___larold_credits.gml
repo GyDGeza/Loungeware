@@ -139,6 +139,10 @@ function ___larold_get_credits(){
 		"nahoo",
 		"baku",
 		"baku",	
+		"deadratdev",
+		"deadratdev",
+		"level5fish",
+		"level5fish",
 	];
 	return credits;
 }
